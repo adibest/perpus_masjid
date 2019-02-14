@@ -87,12 +87,12 @@ if (isset($_SESSION['email_petugas'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Rak Majalah
+        Penulis
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Rak Majalah</li>
+        <li class="active">Penulis</li>
       </ol>
     </section>
 
@@ -100,74 +100,61 @@ if (isset($_SESSION['email_petugas'])) {
     <section class="content">
       <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Rak Majalah</h3>
-              <div class="box-tools">
-                <?php
-                $pencarian = isset($_GET['cari']) ? $_GET['cari']:'';
-                ?>
-                <form action="" method="get">
-                <a href="http://localhost/perpus_masjid/admin/rak_majalah/create.php" class="btn btn-primary pull-right">Create</a>
-                <a href="http://localhost/perpus_masjid/admin/rak_majalah/index.php" class="btn btn-default pull-right">Clear</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" class="form-control pull-right" placeholder="Search" name="cari" value="<?= $pencarian?>">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-                </form>
-              </div>
+              <h3 class="box-title">Penulis</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered">
-                <tr>
-                  	<th style="width: 10px">No</th>
-					<td>ID</td>
-					<td>Nama</td>
-					<td>Action</td>
-                </tr>
 <?php
 include '../../config/koneksi.php';
-$nomor  = 1;
-$cari   = isset($_GET['cari']) ? $_GET['cari']:'';
-$sql    = "SELECT * FROM rak_majalah WHERE id_rak_majalah LIKE '%$cari%' ";
-$result = mysqli_query($connect,$sql);
-
+$id   = $_GET['id'];
+$sql2   = "SELECT * FROM penulis WHERE id_penulis=$id";
+$result = mysqli_query($connect,$sql2);
+$row    = mysqli_fetch_assoc($result);
 ?>
-<?php
-if(mysqli_num_rows($result)){
-  while ($row = mysqli_fetch_assoc($result)) {
-?>
-<tr>
-  <td><?= $nomor++?></td>
-  <td><?= $row['id_rak_majalah']?></td>
-  <td><?= $row['nama_rak_majalah']?></td>
-  <td>
-    <a href='edit.php?id=<?= $row['id_rak_majalah'] ?>' class='btn btn-primary btn-xs'>Edit</a>
-    <a href='delete.php?id=<?= $row['id_rak_majalah'] ?>'onclick='javascript:return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' class='btn btn-danger btn-xs'>Hapus</a>
-  </td>
-</tr>
-<?php
-  }
-} else {
-?>
-<?php 
-  echo "Data not available";
-}
-?>
-              </table>
-              <div class="box-footer clearfix">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
+            <form class="form-horizontal" action="proses_edit.php" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?php echo $id; ?>">
+              <div class="box-body">
+                <!-- text input -->
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
+                    <div class="col-sm-10"> 
+                      <input type="text" class="form-control" id="inputEmail3" value="<?= $row['nama_penulis']?>" name="nama_penulis">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10"> 
+                      <input type="text" class="form-control" id="inputEmail3" value="<?= $row['email_penulis']?>" name="email_penulis">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Alamat</label>
+                    <div class="col-sm-10"> 
+                      <input type="text" class="form-control" id="inputEmail3" value="<?= $row['alamat_penulis']?>" name="alamat_penulis">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Kota</label>
+                    <div class="col-sm-10"> 
+                      <input type="text" class="form-control" id="inputEmail3" value="<?= $row['kota_penulis']?>" name="kota_penulis">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tentang</label>
+                    <div class="col-sm-10"> 
+                      <textarea rows="4" class="form-control" id="inputEmail3" name="tentang_penulis"><?= $row['tentang_penulis']?></textarea>
+                    </div>
+                  </div>
+                
               </div>
-            </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <a href="http://localhost/perpus_masjid/admin/penulis" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
             <!-- /.box-body -->
+          </div>
     </section>
     <!-- /.content -->
   </div>

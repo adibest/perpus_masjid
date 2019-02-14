@@ -1,20 +1,21 @@
 <?php
 include 'koneksi.php';
-function penulis($id)
+function identitas($id)
 {
 	global $connect;
-	$sql = "SELECT * FROM user WHERE id = '$id'";
+	$sql = "SELECT nama_anggota FROM anggota WHERE no_identitas = '$id'";
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_assoc($result)
-	return $row['name'];
+	return $row['nama_anggota'];
 }
 
-function kategori($id)
+function id_anggota($id)
 {
 	global $connect;
-	$sql = "SELECT * FROM kategori WHERE id = '$id'";
+	$sql = "SELECT id_anggota FROM kartu_peserta WHERE id_anggota = '$id'";
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_assoc($result)
-	return $row['nama'];
+	return $row['id_anggota'];
 }
+
 ?>

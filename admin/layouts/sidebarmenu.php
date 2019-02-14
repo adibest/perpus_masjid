@@ -31,15 +31,27 @@ $activePage = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li>
+          <a href="http://localhost/perpus_masjid/admin/kartu_anggota">
+            <i class="fa fa-user-plus"></i>
+            <span>Kartu Anggota</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost/perpus_masjid/admin/pendaftaran">
+            <i class="fa fa-user"></i>
+            <span>Pendaftaran</span>
+          </a>
+        </li>
+        <li>
           <a href="http://localhost/perpus_masjid/admin/buku">
             <i class="fa fa-book"></i>
             <span>Buku</span>
           </a>
         </li>
         <li>
-          <a href="http://localhost/perpus_masjid/admin/kartu_anggota">
-            <i class="fa fa-user-plus"></i>
-            <span>Kartu Anggota</span>
+          <a href="http://localhost/perpus_masjid/admin/rak_buku">
+            <i class="fa fa-user"></i>
+            <span>Rak Buku</span>
           </a>
         </li>
         <li>
@@ -48,10 +60,10 @@ $activePage = basename($_SERVER['PHP_SELF']);
             <span>Kategori Buku</span>
           </a>
         </li>
-      <li>
-          <a href="http://localhost/perpus_masjid/admin/kategori_majalah">
+        <li>
+          <a href="http://localhost/perpus_masjid/admin/pinjam_buku">
             <i class="fa fa-book"></i>
-            <span>Kategori Majalah</span>
+            <span>Pinjam Buku</span>
           </a>
         </li>
         <li>
@@ -61,51 +73,39 @@ $activePage = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li>
-          <a href="http://localhost/perpus_masjid/admin/pendaftaran">
+          <a href="http://localhost/perpus_masjid/admin/kategori_majalah">
+            <i class="fa fa-book"></i>
+            <span>Kategori Majalah</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost/perpus_masjid/admin/rak_majalah">
             <i class="fa fa-user"></i>
-            <span>Pendaftaran</span>
+            <span>Rak Majalah</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://localhost/perpus_masjid/admin/pinjam_majalah">
+            <i class="fa fa-user-plus"></i>
+            <span>Pinjam Majalah</span>
           </a>
         </li>
       <li>
-          <a href="http://localhost/adminlte/admin/penerbit">
+          <a href="http://localhost/perpus_masjid/admin/penerbit">
             <i class="fa fa-book"></i>
             <span>Penerbit</span>
           </a>
         </li>
         <li>
-          <a href="http://localhost/adminlte/admin/penulis">
+          <a href="http://localhost/perpus_masjid/admin/penulis">
             <i class="fa fa-user-plus"></i>
             <span>Penulis</span>
           </a>
         </li>
         <li>
-          <a href="http://localhost/adminlte/admin/petugas">
+          <a href="http://localhost/perpus_masjid/admin/petugas">
             <i class="fa fa-user"></i>
             <span>Petugas</span>
-          </a>
-        </li>
-        <li>
-          <a href="http://localhost/adminlte/admin/pinjam_buku">
-            <i class="fa fa-book"></i>
-            <span>Pinjam Buku</span>
-          </a>
-        </li>
-        <li>
-          <a href="http://localhost/adminlte/admin/pinjam_majalah">
-            <i class="fa fa-user-plus"></i>
-            <span>Pinjam Majalah</span>
-          </a>
-        </li>
-        <li>
-          <a href="http://localhost/adminlte/admin/rak_buku">
-            <i class="fa fa-user"></i>
-            <span>Rak Buku</span>
-          </a>
-        </li>
-        <li>
-          <a href="http://localhost/adminlte/admin/rak_majalah">
-            <i class="fa fa-user"></i>
-            <span>Rak Majalah</span>
           </a>
         </li>
       </ul>
