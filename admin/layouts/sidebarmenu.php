@@ -7,7 +7,19 @@
 
 // $path_3 = 'kategori';
 
-$activePage = basename($_SERVER['PHP_SELF']);
+$pagenow    = dirname($_SERVER['PHP_SELF']);
+$basepage   = basename($_SERVER['PHP_SELF']);
+// $activePage = print_r($pagenow);
+// echo "<br>";
+// $basiki     = print_r($basepage);
+// echo "<br>";
+// echo implode("/", print_r($pagenow));
+// echo "<br>";
+
+
+// /perpus_masjid/admin/layouts
+// Array ( [0] => [1] => perpus_masjid [2] => admin [3] => layouts )
+// class="if($activePage[2] == admin && $activePage[3] == null) {echo "active";} else {echo = "";}"
 
 ?>
  <ul class="sidebar-menu" data-widget="tree">
@@ -18,13 +30,13 @@ $activePage = basename($_SERVER['PHP_SELF']);
         // } else {
         //   echo "<li>";
        ?>
-          <li class="<?= ($activePage == 'http://localhost/perpus_masjid/admin/index.php') ? 'active':''; ?>">
+          <li class="<?php if($activePage[2] == admin && $activePage[3] == null) {echo "active";} else {echo "";} //($activePage == 'http://localhost/perpus_masjid/admin/index.php') ? 'active':''; ?>">
           <a href="http://localhost/perpus_masjid/admin">
             <i class="fa fa-dashboard"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="<?= ($activePage == 'http://localhost/perpus_masjid/anggota/index.php') ? 'active':''; ?>">
+        <li class="<?php if($activePage[2] == admin && $activePage[3] == anggota) {echo "active";} else {echo "";}//($activePage == 'http://localhost/perpus_masjid/admin/anggota/index.php') ? 'active':''; ?>">
           <a href="http://localhost/perpus_masjid/admin/anggota">
             <i class="fa fa-pie-chart"></i>
             <span>Anggota</span>

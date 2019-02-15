@@ -92,7 +92,7 @@ if (isset($_SESSION['email_petugas'])) {
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Penulis</li>
+        <li class="active">Penerbit</li>
       </ol>
     </section>
 
@@ -100,7 +100,7 @@ if (isset($_SESSION['email_petugas'])) {
     <section class="content">
       <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Penulis</h3>
+              <h3 class="box-title">Penerbit</h3>
               <div class="box-tools">
                 <?php
                 $pencarian = isset($_GET['cari']) ? $_GET['cari']:'';

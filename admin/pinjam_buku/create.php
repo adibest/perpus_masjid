@@ -87,12 +87,12 @@ if (isset($_SESSION['email_petugas'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Pinjam Majalah
+        Pinjam Buku
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Pinjam Majalah</li>
+        <li class="active">Pinjam Buku</li>
       </ol>
     </section>
 
@@ -100,82 +100,57 @@ if (isset($_SESSION['email_petugas'])) {
     <section class="content">
       <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Pinjam Majalah</h3>
-              <div class="box-tools">
-                <?php
-                $pencarian = isset($_GET['cari']) ? $_GET['cari']:'';
-                ?>
-                <form action="" method="get">
-                <a href="http://localhost/perpus_masjid/admin/pinjam_majalah/create.php" class="btn btn-primary pull-right">Create</a>
-                <a href="http://localhost/perpus_masjid/admin/pinjam_majalah/index.php" class="btn btn-default pull-right">Clear</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" class="form-control pull-right" placeholder="Search" name="cari" value="<?= $pencarian?>">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-                </form>
-              </div>
+              <h3 class="box-title">Pinjam Buku</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered">
-                <tr>
-                  <th style="width: 10px">No</th>
-                  <td>ID Anggota</td>
-                  <td>ISSN</td>
-                  <td>Tanggal Pinjam</td>
-                  <td>Tanggal Kembali</td>
-                  <td>Status Pinjam</td>
-                  <td>Petugas</td>
-                  <th>Action</th>
-                </tr>
-<?php
-include '../../config/koneksi.php';
-$nomor  = 1;
-$cari   = isset($_GET['cari']) ? $_GET['cari']:'';
-$sql    = "SELECT * FROM pinjam_majalah WHERE issn LIKE '%$cari%' ";
-$result = mysqli_query($connect,$sql);
-
-?>
-<?php
-if(mysqli_num_rows($result)){
-  while ($row = mysqli_fetch_assoc($result)) {
-?>
-<tr>
-  <td><?= $nomor++?></td>
-  <td><?= $row['id_anggota']?></td>
-  <td><?= $row['issn']?></td>
-  <td><?= date('d F Y', strtotime($row['tgl_pinjam_majalah']))?></td>
-  <td><?= date('d F Y', strtotime($row['tgl_kembali_majalah']))?></td>
-  <td><?= $row['status_pinjam_majalah']?></td>
-  <td><?= $row['id_petugas']?></td>
-  <td>
-    <a href='edit.php?id=<?= $row['id_pinjam_majalah'] ?>' class='btn btn-primary btn-xs'>Edit</a>
-    <a href='delete.php?id=<?= $row['id_pinjam_majalah'] ?>'onclick='javascript:return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' class='btn btn-danger btn-xs'>Hapus</a>
-  </td>
-</tr>
-<?php
-  }
-} else {
-?>
-<?php 
-  echo "Data not available";
-}
-?>
-              </table>
-              <div class="box-footer clearfix">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
+            <form class="form-horizontal" action="proses_insert.php" method="POST" enctype="multipart/form-data">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">ID Anggota</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan nama" name="id_anggota">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">ISBN</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="isbn">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Tanggal Pinjam</label>
+                  <div class="col-sm-10"> 
+                    <input type="date" class="form-control" id="inputEmail3" name="tgl_pinjam_buku">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Tanggal Kembali</label>
+                  <div class="col-sm-10"> 
+                    <input type="date" class="form-control" id="inputEmail3" name="tgl_kembali_buku">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Status Peminjaman</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="status_pinjam_buku">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Petugas</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="id_petugas">
+                  </div>
+                </div>
               </div>
-            </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <a href="http://localhost/perpus_masjid/admin/pinjam_buku" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
             <!-- /.box-body -->
+          </div>
     </section>
     <!-- /.content -->
   </div>
