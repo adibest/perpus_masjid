@@ -8,9 +8,9 @@ if(!empty($email) && !empty($pass)) {
 	$query		= mysqli_query($connect, $sql);
 	$row 		= mysqli_fetch_assoc($query);
 	if (mysqli_num_rows($query)>0) {
-		$_SESSION['id_petugas']		= $row['id'];
+		$_SESSION['id_petugas']		= $row['id_petugas'];
 		$_SESSION['email_petugas']	= $email;
-		$_SESSION['nama_petugas']	= $row['name'];
+		$_SESSION['nama_petugas']	= $row['nama_petugas'];
 		// $_SESSION['photo']	= "../gambar_user/".$row['foto'];
 		
 		header('location: ../admin/index.php');

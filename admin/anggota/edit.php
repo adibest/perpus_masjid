@@ -56,7 +56,7 @@ if (isset($_SESSION['email_petugas'])) {
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="" class="img-circle" alt="User Image">
+          <img src="http://localhost/Tugas/masjid-1410494-1193655.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $_SESSION['nama_petugas']?></p>
@@ -112,6 +112,7 @@ $row    = mysqli_fetch_assoc($result);
 ?>
             <form class="form-horizontal" action="proses_edit.php" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?php echo $id; ?>">
+              <input type="hidden" name="no_identitas" value="<?= $row['no_identitas']?>">
               <div class="box-body">
                 <!-- text input -->
                 <div class="form-group">

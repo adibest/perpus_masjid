@@ -1,16 +1,16 @@
 <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               
-              <img src="" class="user-image" alt="User Image">
+              <img src="http://localhost/Tugas/masjid-1410494-1193655.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?= $_SESSION['nama_petugas'] ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="" class="img-circle" alt="User Image">
+                <img src="http://localhost/Tugas/masjid-1410494-1193655.png" class="img-circle" alt="User Image">
 
                 <p>
-                  <?= $_SESSION['name'] ?>
+                  <?= $_SESSION['nama_petugas'] ?>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -35,7 +35,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="http://localhost/adminlte/admin/logout.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="http://localhost/perpus_masjid/admin/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
