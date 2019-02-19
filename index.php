@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>MasjidLIB 2 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -26,11 +26,12 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="AdminLTE-2.4.5/index2.html"><b>Admin</b>LTE</a>
+    <a href="AdminLTE-2.4.5/index2.html"><b>Masjid</b>LIB</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -38,11 +39,11 @@
 
     <form action="config/proses_login.php" method="post">
       <div class="form-group has-feedback">
-        <input type="email" name="email_petugas" class="form-control" placeholder="Email">
+        <input type="email" id="email_petugas" name="email_petugas" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="Password">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -63,10 +64,11 @@
 
     <div class="social-auth-links text-center">
       <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+      <button id="set3" class="btn btn-block btn-flat bg-maroon">Masuk sebagai pengunjung</button>
+      <!-- <a href="#" id="set3" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
         Facebook</a>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
+        Google+</a> -->
     </div>
     <!-- /.social-auth-links -->
 
@@ -93,5 +95,14 @@
     });
   });
 </script>
+<script type="text/javascript" src="http:/localhost/adibi/jscript/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#set3").click(function(){
+        $('#email_petugas').val("pengunjung@perpus.com");
+        $('#password').val("1");
+      });
+    });
+  </script>
 </body>
 </html>

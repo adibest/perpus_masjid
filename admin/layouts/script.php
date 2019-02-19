@@ -26,3 +26,11 @@
 <script src="http://localhost/perpus_masjid/AdminLTE-2.4.5/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="http://localhost/perpus_masjid/AdminLTE-2.4.5/dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="http://localhost/perpus_masjid/AdminLTE-2.4.5/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+})
+</script>

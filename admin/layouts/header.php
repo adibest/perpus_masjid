@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="http://localhost/perpus_masjid/AdminLTE-2.4.5/bower_components/morris.js/morris.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="http://localhost/perpus_masjid/AdminLTE-2.4.5/bower_components/jvectormap/jquery-jvectormap.css">
+    <!-- Select2 -->
+  <link rel="stylesheet" href="../../bower_components/select2/dist/css/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

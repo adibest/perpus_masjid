@@ -4,6 +4,7 @@ $id	= $_GET['id'];
 
 $sql4 = "DELETE FROM anggota WHERE no_identitas = '$id'";
 mysqli_query($connect,$sql4);
-$sql5 = "DELETE FROM "
+// $sql5 = "DELETE FROM kartu_anggota WHERE no_identitas = '$id'";
+// mysqli_query($connect,$sql5);
 header('location:index.php');
 ?>

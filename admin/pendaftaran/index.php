@@ -8,7 +8,7 @@ if (isset($_SESSION['email_petugas'])) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>MasjidLIB 2 | Dashboard</title>
     <?php
     include '../layouts/header.php';
     ?>
@@ -23,9 +23,9 @@ if (isset($_SESSION['email_petugas'])) {
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>M</b>LI</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Masjid</b>LIB</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -124,14 +124,14 @@ if (isset($_SESSION['email_petugas'])) {
                 <tr>
                  <th style="width: 10px">No</th>
                  <td>ID Pendaftaran</td>
-                 <td>ID Anggota</td>
                  <td>Nama</td>
+                 <td>No Identitas</td>
                  <td>Tanggal Pendaftaran</td>
                  <!-- <td>Action</td> -->
                </tr>
                <?php
                include '../../config/koneksi.php';
-               include '../../config/function.php';
+               //include '../../config/function.php';
                $nomor  = 1;
                $cari   = isset($_GET['cari']) ? $_GET['cari']:'';
                $sql    = "SELECT * FROM pendaftaran WHERE id_pendaftaran LIKE '%$cari%' ";
@@ -145,8 +145,8 @@ if (isset($_SESSION['email_petugas'])) {
                   <tr>
                     <td><?= $nomor++?></td>
                     <td><?= $row['id_pendaftaran']?></td>
-                    <td><?= ($row['id_anggota'])?></td>
-                    <td><?= identitas($row['no_identitas'])?></td>
+                    <td><?= $row['nama_anggota']?></td>
+                    <td><?= $row['no_identitas']?></td>
                     <td><?= date('d F Y', strtotime($row['tgl_pendaftaran']))?></td>
                     <!-- <td>
                       <a href='edit.php?id=<?= $row['id_pendaftaran'] ?>' class='btn btn-primary btn-xs'>Edit</a>

@@ -14,15 +14,15 @@ if (isset($_SESSION['email_petugas'])) {
 	$sql1 = "UPDATE anggota SET nama_anggota = '$nama', no_telp_anggota = '$telp', email_anggota = '$email', alamat_anggota = '$alamat', kota_anggota = '$kota' WHERE no_identitas='$id' ";
 	mysqli_query($connect,$sql1);
 
-	$sql_ambil = "SELECT id_anggota FROM kartu_anggota WHERE no_identitas='$noid' ";
-	$result = mysqli_query($connect,$sql_ambil);
-	$row    = mysqli_fetch_assoc($result);
-	$ida 	= $row['id_anggota'];
+	// $sql_ambil = "SELECT id_anggota FROM kartu_anggota WHERE no_identitas='$noid' ";
+	// $result = mysqli_query($connect,$sql_ambil);
+	// $row    = mysqli_fetch_assoc($result);
+	// $ida 	= $row['id_anggota'];
 
-	$sql2 = "UPDATE kartu_anggota SET no_identitas = '$noid' WHERE id_anggota ='$ida' ";
+	$sql2 = "UPDATE kartu_anggota SET nama_anggota = '$nama' WHERE no_identitas ='$id' ";
 	mysqli_query($connect,$sql2);
 
-	$sql3 = "UPDATE pendaftaran SET no_identitas = '$noid', id_anggota = '$ida', tgl_pendaftaran = '$daftar' ";
+	$sql3 = "UPDATE pendaftaran SET nama_anggota = '$nama', tgl_pendaftaran = '$daftar' WHERE no_identitas='$id' ";
 	mysqli_query($connect,$sql3);
 	header('location:index.php');
 } else {

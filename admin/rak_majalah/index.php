@@ -8,7 +8,7 @@ if (isset($_SESSION['email_petugas'])) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>MasjidLIB 2 | Dashboard</title>
     <?php
     include '../layouts/header.php';
     ?>
@@ -23,9 +23,9 @@ if (isset($_SESSION['email_petugas'])) {
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>M</b>LI</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Masjid</b>LIB</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -106,7 +106,7 @@ if (isset($_SESSION['email_petugas'])) {
                 $pencarian = isset($_GET['cari']) ? $_GET['cari']:'';
                 ?>
                 <form action="" method="get">
-                  <a href="http://localhost/perpus_masjid/admin/rak_majalah/create.php" class="btn btn-primary pull-right">Create</a>
+                  <a href="http://localhost/perpus_masjid/admin/rak_majalah/create.php" class="btn btn-primary pull-right <?php if($_SESSION['id_petugas']==2){echo "disabled";} else{echo "";}?>">Create</a>
                   <a href="http://localhost/perpus_masjid/admin/rak_majalah/index.php" class="btn btn-default pull-right">Clear</a>
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" class="form-control pull-right" placeholder="Search" name="cari" value="<?= $pencarian?>">
@@ -144,8 +144,8 @@ if (isset($_SESSION['email_petugas'])) {
                     <td><?= $row['id_rak_majalah']?></td>
                     <td><?= $row['nama_rak_majalah']?></td>
                     <td>
-                      <a href='edit.php?id=<?= $row['id_rak_majalah'] ?>' class='btn btn-primary btn-xs'>Edit</a>
-                      <a href='delete.php?id=<?= $row['id_rak_majalah'] ?>'onclick='javascript:return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' class='btn btn-danger btn-xs'>Hapus</a>
+                      <a href='edit.php?id=<?= $row['id_rak_majalah'] ?>' class='btn btn-primary btn-xs <?php if($_SESSION['id_petugas']==2){echo "disabled";} else{echo "";}?>'>Edit</a>
+                      <a href='delete.php?id=<?= $row['id_rak_majalah'] ?>'onclick='javascript:return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' class='btn btn-danger btn-xs <?php if($_SESSION['id_petugas']==2){echo "disabled";} else{echo "";}?>'>Hapus</a>
                     </td>
                   </tr>
                   <?php

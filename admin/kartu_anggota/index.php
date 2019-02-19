@@ -8,7 +8,7 @@ if (isset($_SESSION['email_petugas'])) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>MasjidLIB 2 | Dashboard</title>
     <?php
     include '../layouts/header.php';
     ?>
@@ -23,9 +23,9 @@ if (isset($_SESSION['email_petugas'])) {
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>M</b>LI</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Masjid</b>LIB</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -124,8 +124,8 @@ if (isset($_SESSION['email_petugas'])) {
                 <tr>
                  <th style="width: 10px">No</th>
                  <td>ID Anggota</td>
-                 <td>No Identitas</td>
                  <td>Nama</td>
+                 <td>No Identitas</td>
                  <!-- <td>Action</td> -->
                </tr>
                <?php
@@ -144,8 +144,8 @@ if (isset($_SESSION['email_petugas'])) {
                   <tr>
                     <td><?= $nomor++?></td>
                     <td><?= $row['id_anggota']?></td>
-                    <td><?= $row['no_identitas']?></td>
-                    <td><?= identitas($row['no_identitas']) //identitas($row['no_identitas'])?></td>
+                    <td><?= $row['nama_anggota']?></td>
+                    <td><?= $row['no_identitas'] //identitas($row['no_identitas'])?></td>
                     <!-- <td>
                       <a href='edit.php?id=<?= $row['id_anggota'] ?>' class='btn btn-primary btn-xs'>Edit</a>
                       <a href='delete.php?id=<?= $row['id_anggota'] ?>'onclick='javascript:return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' class='btn btn-danger btn-xs'>Hapus</a>

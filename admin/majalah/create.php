@@ -8,7 +8,7 @@ if (isset($_SESSION['email_petugas'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>MasjidLIB 2 | Dashboard</title>
  <?php
  include '../layouts/header.php';
  ?>
@@ -23,9 +23,9 @@ if (isset($_SESSION['email_petugas'])) {
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>M</b>LI</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Masjid</b>LIB</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -117,22 +117,43 @@ if (isset($_SESSION['email_petugas'])) {
                     <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="judul_majalah">
                   </div>
                 </div>
+<?php
+include '../../config/koneksi.php';
+$sql02    = "SELECT * FROM rak_majalah";
+$hasil2   = mysqli_query($connect,$sql02);
+$sql03    = "SELECT * FROM kategori_majalah";
+$hasil3   = mysqli_query($connect,$sql03);
+$sql04    = "SELECT * FROM penerbit";
+$hasil4   = mysqli_query($connect,$sql04);
+?>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Rak</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="id_rak_majalah">
+                    <select class="form-control" name="id_rak_majalah">
+                      <?php while($data2 = mysqli_fetch_assoc($hasil2)) {?>
+                        <option value="<?php echo $data2['id_rak_majalah']; ?>"><?php echo $data2['nama_rak_majalah']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Kategori</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="id_kategori_majalah">
+                    <select class="form-control" name="id_kategori_majalah">
+                      <?php while($data3 = mysqli_fetch_assoc($hasil3)) {?>
+                        <option value="<?php echo $data3['id_kategori_majalah']; ?>"><?php echo $data3['nama_kategori_majalah']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Penerbit</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="id_penerbit">
+                    <select class="form-control" name="id_penerbit">
+                      <?php while($data4 = mysqli_fetch_assoc($hasil4)) {?>
+                        <option value="<?php echo $data4['id_penerbit']; ?>"><?php echo $data4['nama_penerbit']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -156,7 +177,10 @@ if (isset($_SESSION['email_petugas'])) {
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="status_majalah">
+                    <select class="form-control" name="status_majalah">
+                      <option value="1">Tersedia</option>
+                      <option value="0">Tidak Tersedia</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">

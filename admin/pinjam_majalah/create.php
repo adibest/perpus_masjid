@@ -8,7 +8,7 @@ if (isset($_SESSION['email_petugas'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>MasjidLIB 2 | Dashboard</title>
  <?php
  include '../layouts/header.php';
  ?>
@@ -23,9 +23,9 @@ if (isset($_SESSION['email_petugas'])) {
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>M</b>LI</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Masjid</b>LIB</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -102,19 +102,36 @@ if (isset($_SESSION['email_petugas'])) {
             <div class="box-header with-border">
               <h3 class="box-title">Pinjam Majalah</h3>
             </div>
+            <?php
+            include '../../config/koneksi.php';
+            $sql01    = "SELECT * FROM kartu_anggota";
+            $hasil    = mysqli_query($connect,$sql01);
+            $sql02    = "SELECT * FROM majalah";
+            $hasil2   = mysqli_query($connect,$sql02);
+            $sql03    = "SELECT * FROM petugas";
+            $hasil3   = mysqli_query($connect,$sql03);
+            ?>
             <!-- /.box-header -->
             <form class="form-horizontal" action="proses_insert.php" method="POST" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">ID Anggota</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan nama" name="id_anggota">
+                    <select class="form-control" name="id_anggota">
+                      <?php while($data = mysqli_fetch_assoc($hasil)) {?>
+                        <option value="<?php echo $data['id_anggota']; ?>"><?php echo $data['nama_anggota']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">ISSN</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="issn">
+                    <select class="form-control" name="issn">
+                      <?php while($data2 = mysqli_fetch_assoc($hasil2)) {?>
+                        <option value="<?php echo $data2['issn']; ?>"><?php echo $data2['judul_majalah']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -132,13 +149,20 @@ if (isset($_SESSION['email_petugas'])) {
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Status Peminjaman</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="status_pinjam_majalah">
+                    <select class="form-control" name="status_pinjam_majalah">
+                      <option value="0">Belum Kembali/Dipinjam</option>
+                      <option value="1">Dikembalikan</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Petugas</label>
                   <div class="col-sm-10"> 
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="masukkan data" name="id_petugas">
+                    <select class="form-control" name="id_petugas">
+                      <?php while($data3 = mysqli_fetch_assoc($hasil3)) {?>
+                        <option value="<?php echo $data3['id_petugas']; ?>"><?php echo $data3['nama_petugas']; ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                 </div>
               </div>
