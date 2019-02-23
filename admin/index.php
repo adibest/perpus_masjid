@@ -113,31 +113,23 @@ if (isset($_SESSION['email_petugas'])) {
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
+          <?php
+          include '../config/koneksi.php';
+          $sql1 = "SELECT count(isbn) as jenis from buku;";
+          $result = mysqli_query($connect,$sql1); 
+          if (mysqli_num_rows($result)) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+          ?>
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
+              <h3><?= $row['jenis'];?></h3>
+<?php }}?>
+              <p>Koleksi Buku</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost/perpus_masjid/admin/buku" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -145,38 +137,65 @@ if (isset($_SESSION['email_petugas'])) {
           <!-- small box -->
           <?php
           include '../config/koneksi.php';
-          $sql23 = "SELECT * from kartu_anggota";
-          // $result = mysqli_query($connect,$sql23); 
-          // $row =  mysql_num_rows($result);
-
-          $query = mysql_query($sql23);
-          $count = mysql_num_rows($query);  
+          $sql12 = "SELECT count(id_penulis) as pnls from penulis;";
+          $result = mysqli_query($connect,$sql12); 
+          if (mysqli_num_rows($result)) {
+            while ($row = mysqli_fetch_assoc($result)) { 
           ?>
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-green">
             <div class="inner">
-              <h3><?= $count ?></h3>
-
-              <p>User Registrations</p>
+              <h3><?= $row['pnls'];?><!-- <sup style="font-size: 20px">%</sup> --></h3>
+<?php }}?>
+              <p>Karya Penulis</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-pencil"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost/perpus_masjid/admin/penulis" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <?php
+          include '../config/koneksi.php';
+          $sql23 = "SELECT count(id_anggota) as jumlah from kartu_anggota;";
+          $result = mysqli_query($connect,$sql23); 
+          if (mysqli_num_rows($result)) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+          ?>
+          <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
+              <h3><?= $row['jumlah']; ?></h3>
+<?php }}?>
+              <p>Anggota Terdaftar</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost/perpus_masjid/admin/anggota" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <?php
+          include '../config/koneksi.php';
+          $sql23 = "SELECT count(id_penerbit) as pnr from penerbit;";
+          $result = mysqli_query($connect,$sql23); 
+          if (mysqli_num_rows($result)) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+          ?>
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?= $row['pnr'];?></h3>
+<?php }}?>
+              <p>Penerbit Ternama</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-print"></i>
+            </div>
+            <a href="http://localhost/perpus_masjid/admin/penerbit" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -827,7 +846,7 @@ if (isset($_SESSION['email_petugas'])) {
 <!-- ./wrapper -->
 
 <?php
-include 'layouts/script2.php';
+include 'layouts/script.php';
 ?>
 </body>
 </html>
